@@ -1,0 +1,58 @@
+{
+  "_from": "lewds.api",
+  "_id": "lewds.api@2.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-AgjVyTHHuWTZ6gIxOZphiOPCqWMFoJ1Y2GsaRf9q1A74f+qwu2NC5p5M/bgVLG+55Orl3Dw7+yTEPv96PSlKyg==",
+  "_location": "/lewds.api",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "lewds.api",
+    "name": "lewds.api",
+    "escapedName": "lewds.api",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/lewds.api/-/lewds.api-2.1.0.tgz",
+  "_shasum": "9cdda5c7071a8d5df538efd49980e847eae1aed6",
+  "_spec": "lewds.api",
+  "_where": "/root/Alyx",
+  "author": {
+    "name": "SmallCadaver#3724"
+  },
+  "bugs": {
+    "url": "https://github.com/MxsicXYZ/lewds.api/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "deprecated": false,
+  "description": "An api wrapper for lewds.ga for Discord JavaScript Bots",
+  "devDependencies": {},
+  "homepage": "https://github.com/MxsicXYZ/lewds.api#readme",
+  "keywords": [
+    "weebs",
+    "api",
+    "nsfw",
+    "discord",
+    "discord.js"
+  ],
+  "license": "MIT",
+  "main": "lewds.js",
+  "name": "lewds.api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MxsicXYZ/lewds.api.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.1.0"
+}
