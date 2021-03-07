@@ -1,5 +1,6 @@
 module.exports = {
     base: "https://lewds.ga/v1/nsfw/",
+    baseFun: "https://lewds.ga/api/fun/",
     baseSafe: "https://lewds.ga/api/sfw/",
     endpoints: {
         ass: "https://lewds.ga/v1/nsfw/ass",
@@ -11,16 +12,19 @@ module.exports = {
         athighs: "https://lewds.ga/v1/nsfw/athighs",
         feet: "https://lewds.ga/v1/nsfw/feet",
         gifs: "https://lewds.ga/v1/nsfw/gifs",
-		hboobs: "https://lewds.ga/v1/nsfw/hboobs",
-		hentai: "https://lewds.ga/v1/nsfw/hentai",
-		kink: "https://lewds.ga/v1/nsfw/kink",
-		thighs: "https://lewds.ga/v1/nsfw/thighs",
-		yuri: "https://lewds.ga/v1/nsfw/yuri",
-		milk: "https://lewds.ga/v1/nsfw/milk",
-		slime: "https://lewds.ga/v1/nsfw/slime",
-		trap: "https://lewds.ga/v1/nsfw/trap",
-		kiss: "https://lewds.ga/api/sfw/kiss",
-		pantsu: "https://lewds.ga/api/sfw/pantsu",
-		pat: "https://lewds.ga/api/sfw/pat"
+	hboobs: "https://lewds.ga/v1/nsfw/hboobs",
+	hentai: "https://lewds.ga/v1/nsfw/hentai",
+	kink: "https://lewds.ga/v1/nsfw/kink",
+	thighs: "https://lewds.ga/v1/nsfw/thighs",
+	yuri: "https://lewds.ga/v1/nsfw/yuri",
+	milk: "https://lewds.ga/v1/nsfw/milk",
+	slime: "https://lewds.ga/v1/nsfw/slime",
+	trap: "https://lewds.ga/v1/nsfw/trap",
+	kiss: "https://lewds.ga/v1/sfw/kiss",
+	pantsu: "https://lewds.ga/v1/nsfw/pantsu",
+	pat: "https://lewds.ga/v1/fun/pat",
+	eightball: "https://lewds.ga/v1/fun/8ball",
+	reverse: "https://lewds.ga/v1/fun/reverse",
+	shuffle: "https://lewds.ga/v1/fun/shuffle",
     }
 }
