@@ -27,7 +27,7 @@ class LewdClient {
             if(json.url == undefined) throw Error(`[LEWDS]: ${img} is not a valid endpoint!`)
             return json.result
         })
-    },
+    }
     async fun(img) {
         return fetch(`${tinees.baseFun}${img}?key=${this.KEY}`)
         .then(res => res.json())
