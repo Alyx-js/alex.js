@@ -1,5 +1,5 @@
-const tinees = require('./end');
-const fetch = require('node-fetch');
+tinees = require('./end');
+fetch = require('node-fetch');
 
 class LewdClient {
 	constructor(options = {}) {
@@ -25,7 +25,9 @@ class LewdClient {
     
     async chat(msg, userID) {
 	const body = { msg: msg, uid: userID };
-    	return fetch(`${tinees.base}${img}`, {
+    const fetch = require("node-fetch");
+
+    return fetch('https://lewds.fun/api/v1/fun/chat', {
             method: 'POST',
             body:    JSON.stringify(body),
             headers: { "authorization": this.KEY, 'Content-Type': 'application/json'},

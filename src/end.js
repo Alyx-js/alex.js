@@ -20,6 +20,6 @@ module.exports = {
 	trap: "https://lewds.fun/api/v1/nsfw/trap",
 	kiss: "https://lewds.fun/api/v1/sfw/kiss",
 	pantsu: "https://lewds.fun/api/v1/nsfw/pantsu",
-	chat: ""https://lewds.fun/api/v1/fun/chat",
+	chat: "https://lewds.fun/api/v1/fun/chat",
     }
 }
