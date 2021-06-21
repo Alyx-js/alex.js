@@ -13,8 +13,8 @@ api.nsfw("thighs").then(result => {
     console.log(result)
 })
 
-// SFW Endpoints
-api.sfw("pat").then(result => {
+// Chat Endpoint
+api.sfw("MESSAGE%20CONTENT", "USERID").then(result => {
     console.log(result)
 })
 

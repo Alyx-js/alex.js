@@ -3,7 +3,7 @@ fetch = require('node-fetch');
 
 class LewdClient {
 	constructor(options = {}) {
-		if(!options.KEY) throw new Error("No key found for Lewds.GA");
+		if(!options.KEY) throw new Error("No key found for Lewds API");
 		this.KEY = options.KEY;
 	};
     /**
@@ -20,6 +20,22 @@ class LewdClient {
         .then(json =>  {
             if(json == undefined) throw Error(`[LEWDS]: ${img} is not a valid endpoint!`)
             return json.result
+        })
+    };
+    
+    async chat(msg, userID) {
+	const body = { msg: msg, uid: userID };
+    const fetch = require("node-fetch");
+
+    return fetch(`${tinees.base}${img}`, {
+            method: 'POST',
+            body:    JSON.stringify(body),
+            headers: { "authorization": this.KEY, 'Content-Type': 'application/json'},
+        })
+        .then(res => res.json())
+        .then(json =>{
+            if(json == undefined) throw Error(`[LEWDS]: ${"chat"} is not a valid endpoint!`)
+            return json.response
         })
     }
 }
