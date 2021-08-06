@@ -43,7 +43,7 @@ class LewdClient {
         if (!userName) userName = "aaa"
         if (!hex) hex = 'white'
         if (!bgUrl) bgUrl = "https://www.wallpapers13.com/wp-content/uploads/2015/12/Forest-river-desktop-background-594036-1920x1440.jpg"
-        return "https://lewds.fun/api/v1/image/welcome?un="+userName+"&av="+avatarUrl+"&bg="+bgUrl+"&hex="+hex
+        return "https://lewds.fun/api/v1/image/welcome?un="+userName.replace(" ", "%20")+"&av="+avatarUrl+"&bg="+bgUrl+"&hex="+hex
     }
 }
 module.exports = LewdClient
