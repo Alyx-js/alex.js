@@ -23,5 +23,7 @@ module.exports = {
 		pantsu: "https://lewds.fun/api/v1/nsfw/pantsu",
 		blow: "https://lewds.fun/api/v1/nsfw/blow",
 		chat: "https://lewds.fun/api/v1/fun/chat",
+		godSearch: "https://lewds.fun/api/v1/image/god?",
+		welcome: "https://lewds.fun/api/v1/image/welcome?" 
 	}
 }

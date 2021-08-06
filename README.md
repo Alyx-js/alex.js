@@ -21,6 +21,10 @@ api.chat("MESSAGE%20CONTENT", "USERID").then(result => {
 api.welcomeImage("userName", "https://image.com/avatarURL", "https://image.com/BackgroundURL", "#800813").then(result => {
     console.log(result)
 })
+
+api.godSearch("userName", "https://image.com/avatarURL", "https://image.com/BackgroundURL", "#800813").then(result => {
+    console.log(result)
+})
 ```
 
 # endpoints
