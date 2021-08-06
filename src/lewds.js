@@ -40,7 +40,7 @@ class LewdClient {
     }
     async welcomeImage(userName, avatarUrl, bgUrl, hex) {
         if (!avatarUrl) avatarUrl = "https://support.discord.com/system/photos/360618289651/profile_image_399675562672_678183.jpg"
-        if (!userName) userName = "aaa"
+        if (!userName) userName = "Username#0001"
         if (!hex) hex = 'white'
         if (!bgUrl) bgUrl = "https://www.wallpapers13.com/wp-content/uploads/2015/12/Forest-river-desktop-background-594036-1920x1440.jpg"
         return "https://lewds.fun/api/v1/image/welcome?un="+userName.replace(" ", "%20")+"&av="+avatarUrl+"&bg="+bgUrl+"&hex="+hex
