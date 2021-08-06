@@ -1,28 +1,27 @@
 {
-  "_from": "lewds.api",
-  "_id": "lewds.api@2.1.8",
+  "_from": "lewds.api@^2.2.2",
+  "_id": "lewds.api@2.2.2",
   "_inBundle": false,
-  "_integrity": "sha512-AgjVyTHHuWTZ6gIxOZphiOPCqWMFoJ1Y2GsaRf9q1A74f+qwu2NC5p5M/bgVLG+55Orl3Dw7+yTEPv96PSlKyg==",
+  "_integrity": "sha512-U5Qs/+ol7U36viLzDLPd7J7g5hLDGJ1pL02L7RBH2y0VH2HbjYk4B88+6Y7umPhyBXV5ATRzH0v81EjeBBAKNg==",
   "_location": "/lewds.api",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "lewds.api",
+    "raw": "lewds.api@^2.2.2",
     "name": "lewds.api",
     "escapedName": "lewds.api",
-    "rawSpec": "",
+    "rawSpec": "^2.2.2",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^2.2.2"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/lewds.api/-/lewds.api-2.1.8.tgz",
-  "_shasum": "9cdda5c7071a8d5df538efd49980e847eae1aed6",
-  "_spec": "lewds.api",
-  "_where": "/root/Alyx",
+  "_resolved": "https://registry.npmjs.org/lewds.api/-/lewds.api-2.2.2.tgz",
+  "_shasum": "cbfe58287f9798d02ada760e63363211101e8d0c",
+  "_spec": "lewds.api@^2.2.2",
+  "_where": "C:\\Users\\zaken\\Desktop\\Eris",
   "author": {
     "name": "SmallCadaver#3724"
   },
@@ -54,5 +53,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "2.1.8"
+  "version": "2.2.2"
 }

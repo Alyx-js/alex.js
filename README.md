@@ -14,10 +14,13 @@ api.nsfw("thighs").then(result => {
 })
 
 // Chat Endpoint
-api.sfw("MESSAGE%20CONTENT", "USERID").then(result => {
+api.chat("MESSAGE%20CONTENT", "USERID").then(result => {
     console.log(result)
 })
 
+api.welcomeImage("userName", "https://image.com/avatarURL", "https://image.com/BackgroundURL", "#800813").then(result => {
+    console.log(result)
+})
 ```
 
 # endpoints
@@ -43,13 +46,12 @@ api.sfw("MESSAGE%20CONTENT", "USERID").then(result => {
 - random
 - slime
 - trap
+- blow
+- fuck
 
 ### || SFW  ||
+- chat
 
-- kiss
-- hug
-- pat
-
-For an up to date list on endpoints visit [lewds.ga/docs](https://lewds.ga/docs)
+For an up to date list on endpoints visit [lewds.fun](https://lewds.fun)
 
 For support join our [discord](https://discord.gg/invite/8SKspRB)
