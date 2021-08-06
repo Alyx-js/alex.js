@@ -46,7 +46,11 @@ class LewdClient {
         return "https://lewds.fun/api/v1/image/welcome?un=" + userName.replace(" ", "%20") + "&av=" + avatarUrl + "&bg=" + bgUrl + "&hex=" + hex
     }
     async godSearch(searches) {
-    return `${tinees.godSearch}${searches.replace(" ", "%20")}`
+    return `https://lewds.fun/api/v1/image/god?search=${searches.replace(" ", "%20")}`
     }
+    async onlyImage(message) {
+        if (!message) message = "Discord";
+        return `https://lewds.fun/api/v1/image/only?message=${message.replace(" ", "%20")}`
+        }
 }
 module.exports = LewdClient

@@ -24,6 +24,7 @@ module.exports = {
 		blow: "https://lewds.fun/api/v1/nsfw/blow",
 		chat: "https://lewds.fun/api/v1/fun/chat",
 		godSearch: "https://lewds.fun/api/v1/image/god?search=",
-		welcome: "https://lewds.fun/api/v1/image/welcome?" 
+		welcome: "https://lewds.fun/api/v1/image/welcome?",
+		onlyImage: "https://lewds.fun/api/v1/image/only?message=" 
 	}
 }
