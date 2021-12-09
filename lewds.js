@@ -1,3 +1,3 @@
 module.exports = {
-	LewdClient: require('./src/lewds')
+	LewdClient: require('./src/lewds'),
 }

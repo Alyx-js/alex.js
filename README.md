@@ -1,4 +1,6 @@
 # LewdsGA / API
+*(Might be buggy still)*
+
 ## Installation
 ```bash
 npm i lewds.api
@@ -17,45 +19,80 @@ api.nsfw("thighs").then(result => {
 api.chat("MESSAGE%20CONTENT", "USERID").then(result => {
     console.log(result)
 })
+```
 
-api.welcomeImage("userName", "https://image.com/avatarURL", "https://image.com/BackgroundURL", "#800813").then(result => {
-    console.log(result)
-})
+## AutoUnmute + Mute system
+> Mutes and unmutes.
+```js
+// index.js
 
-api.godSearch("userName", "https://image.com/avatarURL", "https://image.com/BackgroundURL", "#800813").then(result => {
-    console.log(result)
+const { Client } = require('discord.js');
+const client = new Client({ intents: ["GUILDS", "GUILD_MEMBERS"]});// Not sure about guild_members..?
+const { LewdClient } = require('lewds.api');
+const lewds = new LewdClient({ KEY: "Your-API-Key-Here" })
+client.lewds = lewds;
+
+client.lewds.connectToMongoDB("Your-mongoDB-URL-Here");
+client.lewds.timed(client)// auto unmutes
+
+// event when someones unmuted
+client.on("timedUnmute", (user, guild)=>{
+    console.log(`${user.name} (${user.id}) was unmuted in ${guild.name} (${guild.id})`)
 })
+...
+```
+```js
+// mute.js
+        ...
+    /** member { Discord.User }
+      * time { Number }
+      * reason { String }
+      */
+    client.lewds.forced(member, time, reason)
+        ...
+```
+```js
+// unmute.js
+        ...
+     /** 
+      * client { Discord.Client }
+      * user { Discord.User }
+      */
+    client.lewds.forced(client, user)
+        ...
+```
+
+## Quote Command.js
+> Quotes a message via a messageID from message channel or Message URL.
+```js
+        ...              ...                 ...
+                // QuoteCommand.js
+client.lewds.quoteId(client, args[0], msg.channel).then(res => { 
+// msg.channel (OR message.channel) is needed just the way it is unless you call the current channel differently.
+const embed = new MessageEmbed()
+    .setDescription(`\`\`\`${res.content}\`\`\``)
+    .setTimestamp(res.createdAt)
+    .setColor(res.author.accentColor || "WHITE")
+    .setAuthor(res.author.username, res.author.avatarURL({ type: "png", dynamic: true, size: 4096 }), res.author.avatarURL({ type: "png", dynamic: true, size: 4096 }))
+if (res.attachments && res.attachments.size > 0) {
+    embed.setImage(res.attachments.first().url)
+}
+    console.log(res.content)
+    msg.reply({ embeds: [embed] });
+    });
+
+...              ...                 ...
 ```
 
 # endpoints
-
+--------------------------
 ### || NSFW  ||
 
-- ass 
-- boobs 
-- feet 
-- gifs 
-- hboobs 
-- hentai 
-- athighs
-- kink 
-- thighs 
-- yuri
-- threed
-- furfuta
-- furgif
-- futa
-- milk
-- pantsu
-- random
-- slime
-- trap
-- blow
-- fuck
+- Just read [Docs](https://docs.lewds.fun) please...
 
 ### || SFW  ||
 - chat
 
-For an up to date list on endpoints visit [lewds.fun](https://lewds.fun)
+For an up to date list on endpoints visit [lewds.fun](https://docs.lewds.fun)
 
 For support join our [discord](https://discord.gg/invite/8SKspRB)

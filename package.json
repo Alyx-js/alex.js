@@ -1,6 +1,6 @@
 {
-  "_from": "lewds.api@^2.2.5",
-  "_id": "lewds.api@2.2.5",
+  "_from": "lewds.api@^2.3.2",
+  "_id": "lewds.api@2.3.2",
   "_inBundle": false,
   "_integrity": "sha512-U5Qs/+ol7U36viLzDLPd7J7g5hLDGJ1pL02L7RBH2y0VH2HbjYk4B88+6Y7umPhyBXV5ATRzH0v81EjeBBAKNg==",
   "_location": "/lewds.api",
@@ -8,33 +8,34 @@
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "lewds.api@^2.2.5",
+    "raw": "lewds.api@^2.3.2",
     "name": "lewds.api",
     "escapedName": "lewds.api",
-    "rawSpec": "^2.2.5",
+    "rawSpec": "^2.3.2",
     "saveSpec": null,
-    "fetchSpec": "^2.2.5"
+    "fetchSpec": "^2.3.2"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/lewds.api/-/lewds.api-2.2.5.tgz",
+  "_resolved": "https://registry.npmjs.org/lewds.api/-/lewds.api-2.3.2.tgz",
   "_shasum": "cbfe58287f9798d02ada760e63363211101e8d0c",
-  "_spec": "lewds.api@^2.2.5",
-  "_where": "C:\\Users\\zaken\\Desktop\\Eris",
+  "_spec": "lewds.api@^2.3.2",
+  "_where": "C:\\Users\\zaken\\Desktop\\lewds.api",
   "author": {
-    "name": "SmallCadaver#3724"
+    "name": "Egg#0004"
   },
   "bugs": {
     "url": "https://github.com/MxsicXYZ/lewds.api/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
+    "discord.js": "^13.3.1",
+    "mongoose": "^6.0.14",
     "node-fetch": "^2.6.0"
   },
   "deprecated": false,
   "description": "An api wrapper for lewds.ga for Discord JavaScript Bots",
-  "devDependencies": {},
   "homepage": "https://github.com/MxsicXYZ/lewds.api#readme",
   "keywords": [
     "weebs",
@@ -53,5 +54,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "2.2.5"
+  "version": "2.3.2"
 }
