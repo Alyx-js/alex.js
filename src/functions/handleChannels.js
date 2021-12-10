@@ -10,12 +10,10 @@ const Discord = require("discord.js");
 
 module.exports = async function handleChannelType(client, options, user) {
     let channel;
-    if (!options.channelID) {
+    try {
         channel = await user.createDM();
-    } else {
-        if (options.sendToTextChannel == true) {
-            channel = (await client.guilds.fetch(options.guildID)).channels.resolve(options.channelID);
-        }
+    } catch {
+        return
     }
     return channel
 }

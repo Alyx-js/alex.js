@@ -28,7 +28,7 @@ const captchaOptions = {
     sendToTextChannel: false,
     kickOnFailure: true,
     caseSensitive: true,
-    attempts: 4,
+    attempts: 1,
     timeout: 60000,
     showAttemptCount: true,
     customPromptEmbed: undefined,
@@ -103,7 +103,7 @@ class Captcha extends EventEmitter {
         (More options can be viewed on the README at https://npmjs.com/discord.js-captcha)`
 
         if (!client) {
-            console.log(`Discord.js Captcha Error: No Discord Client was Provided!\n\nFollow this Structure:\n${structure}\n\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: No Discord Client was Provided!\n\nFollow this Structure:\n${structure}'`);
             process.exit(1)
         }
         this.client = client;
@@ -114,31 +114,31 @@ class Captcha extends EventEmitter {
         this.options = options;
 
         if ((options.sendToTextChannel === true) && (!options.channelID)) {
-            console.log(`Discord.js Captcha Error: Option "sendToTextChannel" was set to true, but "channelID" was not Provided!\n\nFollow this Structure:\n${structure}\n\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: Option "sendToTextChannel" was set to true, but "channelID" was not Provided!\n\nFollow this Structure:\n${structure}\n'`);
             process.exit(1)
         }
         if (options.attempts < 1) {
-            console.log(`Discord.js Captcha Error: Option "attempts" must be Greater than 0!\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: Option "attempts" must be Greater than 0!`);
             process.exit(1)
         }
         if (options.timeout < 1) {
-            console.log(`Discord.js Captcha Error: Option "timeout" must be Greater than 0!\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: Option "timeout" must be Greater than 0!`);
             process.exit(1)
         }
         if (options.caseSensitive && (typeof options.caseSensitive !== "boolean")) {
-            console.log(`Discord.js Captcha Error: Option "caseSensitive" must be of type boolean!\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: Option "caseSensitive" must be of type boolean!`);
             process.exit(1)
         }
         if (options.customPromptEmbed && (typeof options.customPromptEmbed === "string")) {
-            console.log(`Discord.js Captcha Error: Option "customPromptEmbed" is not an instance of MessageEmbed!\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: Option "customPromptEmbed" is not an instance of MessageEmbed!`);
             process.exit(1)
         }
         if (options.customSuccessEmbed && (typeof options.customSuccessEmbed === "string")) {
-            console.log(`Discord.js Captcha Error: Option "customSuccessEmbed" is not an instance of MessageEmbed!\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: Option "customSuccessEmbed" is not an instance of MessageEmbed!`);
             process.exit(1)
         }
         if (options.customFailureEmbed && (typeof options.customFailureEmbed === "string")) {
-            console.log(`Discord.js Captcha Error: Option "customFailureEmbed" is not an instance of MessageEmbed!\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+            console.log(`Discord.js Captcha Error: Option "customFailureEmbed" is not an instance of MessageEmbed!'`);
             process.exit(1)
         }
 
@@ -178,11 +178,11 @@ class Captcha extends EventEmitter {
     *     captcha.present(member);
     * });
     */
-    async present(member, roleID, channel) {
-        if (!member) return console.log(`Discord.js Captcha Error: No Discord Member was Provided!\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+    async present(member, channel, roleID) {
+        if (!member) return console.log(`Discord.js Captcha Error: No Discord Member was Provided!`);
         const user = member.user
         const captcha = await createCaptcha(this.options.caseSensitive).catch(e => { return console.log(e) })
-        let attemptsLeft = this.options.attempts || 4;
+        let attemptsLeft = this.options.attempts || 3;
         let attemptsTaken = 1;
         let captchaResponses = [];
 
@@ -211,7 +211,7 @@ class Captcha extends EventEmitter {
             .setThumbnail(member.guild.iconURL())
 
         if (this.options.customPromptEmbed) captchaPrompt = this.options.customPromptEmbed
-        if (this.options.showAttemptCount) captchaPrompt.setFooter(this.options.attempts == 1 ? "You have four attempts to solve the CAPTCHA." : `Attempts Left: ${attemptsLeft}`)
+        if (this.options.showAttemptCount) captchaPrompt.setFooter(this.options.attempts == 1 ? "You have one attempt to solve the CAPTCHA." : `Attempts Left: ${attemptsLeft}`)
         captchaPrompt.setImage('attachment://captcha.png')
 
         await handleChannelType(this.client, channel, user).then(async channel => {
@@ -239,7 +239,7 @@ class Captcha extends EventEmitter {
                         ]
                     })
                 } else {
-                    return console.log(`Discord.js Captcha Error: User's Direct Messages are Locked!\nYou can attempt have the CAPTCHA sent to a Text Channel if it can't send to DMs by using the "channelID" Option in the Constructor.\nNeed Help? Join our Discord Server at 'https://discord.gg/P2g24jp'`);
+                    return console.log(`Discord.js Captcha Error: User's Direct Messages are Locked!\nYou can attempt have the CAPTCHA sent to a Text Channel if it can't send to DMs by using the "channelID" Option in the Constructor.`);
                 }
             }
 
@@ -249,7 +249,7 @@ class Captcha extends EventEmitter {
 
             async function handleAttempt(captchaData) { //Handles CAPTCHA Responses and Checks
                 await captchaEmbed.channel.awaitMessages({
-                    filter: captchaFilter, max: 4, time: captchaData.options.timeout
+                    filter: captchaFilter, max: 1, time: captchaData.options.timeout
                 })
                     .then(async responses => {
 
@@ -295,7 +295,7 @@ class Captcha extends EventEmitter {
                                 captchaText: captcha.text,
                                 captchaOptions: captchaData.options
                             })
-                            await member.roles.add(roleID.id)
+                            await member.roles.add(roleID)
                             if (channel.type === "GUILD_TEXT") await captchaEmbed.delete();
                             return channel.send({ embeds: [captchaCorrect] })
                                 .then(async msg => {
