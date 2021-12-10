@@ -83,7 +83,15 @@ if (res.attachments && res.attachments.size > 0) {
 
 ...              ...                 ...
 ```
-
+```js
+// Captcha system / event
+const { LewdCaptcha } = require("lewds.api");
+client.on("guildMemberAdd", (member) => {
+    const role = member.guild.roles.cache.get("900630774934540288");
+    const channel = member.guild.channels.fetch("918774865186684928")
+    new LewdCaptcha.Captcha(client).present(member, role, channel);
+});
+```
 # endpoints
 --------------------------
 ### || NSFW  ||

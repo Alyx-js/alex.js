@@ -1,5 +1,5 @@
-tinees = require('./end');
-fetch = require('node-fetch');
+const tinees = require('./end');
+const fetch = require('node-fetch');
 const schema = require("./schema/unmute");
 const ms = require("./functions/parseMS");
 const db = require("mongoose");
@@ -7,7 +7,8 @@ class LewdClient {
     constructor(options = {}) {
         if (!options.KEY) throw new Error("No key found for Lewds API");
         this.KEY = options.KEY,
-            this.MongoDBUri = options.MongoDB;
+        this.client = options.client,
+        this.MongoDBUri = options.MongoDB;
     };
     /**
      * @param {String} img endpoint to search
@@ -42,34 +43,6 @@ class LewdClient {
             })
     }
 
-    async welcomeImage(userName, avatarUrl, bgUrl, hex) {
-        if (!avatarUrl) avatarUrl = "https://support.discord.com/system/photos/360618289651/profile_image_399675562672_678183.jpg"
-        if (!userName) userName = "userName"
-        if (!hex) hex = 'white'
-        if (!bgUrl) bgUrl = "https://www.wallpapers13.com/wp-content/uploads/2015/12/Forest-river-desktop-background-594036-1920x1440.jpg"
-        return "https://lewds.fun/api/v1/image/welcome?un=" + userName.replace(" ", "%20") + "&av=" + avatarUrl + "&bg=" + bgUrl + "&hex=" + hex
-    }
-    async godSearch(searches) {
-        return `https://lewds.fun/api/v1/image/god?search=${searches.replace(" ", "%20")}`
-    }
-    async onlyImage(message) {
-        if (!message) message = "Discord";
-        return `https://lewds.fun/api/v1/image/only?message=${message.replace(" ", "%20")}`
-    }
-    async afk(msg, userID) {
-        const body = { msg: msg, uid: userID };
-        const fetch = require("node-fetch");
-        return fetch('https://lewds.fun/api/v1/fun/afk', {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: { "authorization": this.KEY, 'Content-Type': 'application/json' },
-        })
-            .then(res => res.json())
-            .then(json => {
-                if (json == undefined) throw Error(`[LEWDS]: ${"afk"} is not a valid endpoint!`)
-                return json.response
-            })
-    }
     /**
      * does not connect to api below this vvvv
      * mutes a Guild Member by a given time
@@ -172,7 +145,7 @@ class LewdClient {
                 const b = await client.guilds.cache.get(parses[4])
                 if (b) {
                     const c = await b.channels.cache.get(parses[5])
-                   const d = c.messages.fetch(parses[6]).then(
+                    const d = c.messages.fetch(parses[6]).then(
                         async m => {
                             {
                                 if (m.channel.nsfw && !channel.nsfw) return {
@@ -204,7 +177,7 @@ class LewdClient {
                             }
                         })
                     return d;
-                } else return{
+                } else return {
                     content: 'No valid message found!',
                     author: {
                         accentColor: client.user.accentColor,
