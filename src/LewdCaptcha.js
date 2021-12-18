@@ -150,6 +150,34 @@ class Captcha extends EventEmitter {
         Object.assign(this.options, options);
     }
 
+    async check(member, days, roleID, joinCount) {//> Date.now() - 1209600000 
+        if (!member) return "No member argument passed in check function!";
+        if (!days) return "No days argument passed in check function!";
+        if (!joinCount) return "No joinCount count in Check Function!"
+        if (!roleID) return "No unverifiedRoleID passed in check function!";
+        let joined = [];
+        await joined.push(member.id);
+        if (member.user.createdTimestamp > Date.now() - (days * 86400000) && joined.length > joinCount) {
+            if (roleID) {
+                if (!member.guild.roles.cache.get(roleID)) return;
+                await member.roles.add(roleID);
+                
+                return member.user + " has been assigned the verification role!";
+            };
+        };
+        
+        if (joined.length > joinCount) {
+            joined.forEach(async memb =>{
+                let m = member.guild.members.cache.get(memb)
+                await m.send("You have been kicked from " + member.guild.name + " for: Join Raid prevention")
+                m.kick("Join Raid prevention");
+            })
+        }
+        setTimeout(() => {
+            joined = [];
+            return joined.length;
+        }, 6500)
+    }
     /**
     * Presents the CAPTCHA to a Discord Server Member.
     * 

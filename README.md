@@ -87,9 +87,21 @@ if (res.attachments && res.attachments.size > 0) {
 // Captcha system / event
 const { LewdCaptcha } = require("lewds.api");
 client.on("guildMemberAdd", (member) => {
-    const role = member.guild.roles.cache.get("900630774934540288");
-    const channel = member.guild.channels.fetch("918774865186684928")
+    
+// =============================================================================
+    //  for captcha setup / sending.
+    const role = member.guild.roles.cache.get("xxxxxxxxxxxxxxxxx");
+    const channel = member.guild.channels.fetch("xxxxxxxxxxxxxxxxx");
     new LewdCaptcha.Captcha(client).present(member, role, channel);
+// =============================================================================
+    // For antiJoin raid checking: 
+    new LewdCaptcha.Captcha(client).check(member, days, roleId, joinCount);
+    // member = user
+    // days = amount of days user has been registered for
+    // roleId = mute/unverified roleId
+    // joinCount = max amount of new joins before kicking this amount of users that joined recently. (the time frame is 6500ms [6~ seconds])
+// =============================================================================
+
 });
 ```
 # endpoints
